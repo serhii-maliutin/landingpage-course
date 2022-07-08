@@ -1,21 +1,3 @@
-@font-face {
-  font-family: "Verdana";
-  src: url("../css/fonts/Verdana-Bold.woff2") format("woff2"),
-    url("../css/fonts/Verdana-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("../css/fonts/Verdana.woff2") format("woff2"),
-    url("../css/fonts/Verdana.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --biege: #ebac87;
   --white: #fff;
@@ -37,15 +19,8 @@ html {
 }
 
 body {
-  min-height: 100vh;
-
   font-family: "Verdana", sans-serif;
   font-size: 20px;
-}
-
-img {
-  display: block;
-  max-width: 100%;
 }
 
 /*  */
@@ -70,6 +45,7 @@ img {
   font-size: 60px;
   line-height: 66px;
   color: #9db0d1;
+  font-weight: 400;
 }
 
 .hero__subtitle {
@@ -81,7 +57,9 @@ img {
 .hero__list {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 50px;
+
   flex-wrap: wrap;
 }
 
@@ -91,18 +69,19 @@ img {
   gap: 15px;
 }
 
-.hero__list-item::before {
-  content: url(../img/checkmark.svg);
+.checkmark-container {
   background-color: #9db0d1;
-
   width: 60px;
   height: 60px;
-  /* line-height: 60px; */
-  border-radius: 50%;
-
+  line-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+}
+
+.checkmark {
+  fill: var(--white);
 }
 
 .hero__title,
@@ -115,21 +94,25 @@ img {
 /* CARDs SECTION */
 /*  */
 main {
-  background-color: var(--blue);
   background-color: #fff;
-  background-image: url("../img/clouds.png"), url("../img/mountain.png"),
+  background-image: url("../img/clouds.png"),
     linear-gradient(
       180deg,
       rgba(135, 198, 235, 0) 0%,
-      rgba(135, 198, 235, 1) 20%
+      rgba(135, 198, 235, 1) 400px
     );
-  background-size: contain, 40%;
-  background-position: 50% 0, 85% 100%;
-  background-repeat: repeat-x, no-repeat;
+  background-size: auto 200px, auto;
+  background-repeat: repeat-x;
+  background-position: 50% 0;
 }
 
 .container--main {
-  padding-top: 250px;
+  padding-top: 252px;
+
+  background-image: url("../img/mountain.png");
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
 }
 
 .section-title {
@@ -137,6 +120,7 @@ main {
   font-size: 40px;
   line-height: 44px;
   margin-bottom: 50px;
+  font-weight: 400;
 }
 
 .cards-section__title {
@@ -161,6 +145,11 @@ main {
   flex-basis: 350px;
 
   transition: transform 250ms ease-in-out;
+}
+
+.card__img {
+  display: block;
+  max-width: 100%;
 }
 
 .card__number {
@@ -234,18 +223,38 @@ main {
   justify-content: space-between;
 }
 
-.socials__nav-list {
-  list-style: none;
+.socials {
   display: flex;
   gap: 35px;
 }
 
 .socials__img {
   transition: transform 250ms ease-in-out;
+  fill: #9db0d1;
 }
 
-.socials__link:hover .socials__img {
-  transform: scale(1.2);
+.socials__link:hover .socials__img,
+.socials__link:focus .socials__img,
+.socials__link:active .socials__img {
+  transform: scale(1.3);
+}
+
+.socials__link:hover .facebook,
+.socials__link:focus .facebook,
+.socials__link:active .facebook {
+  fill: #4267b2;
+}
+
+.socials__link:hover .instagram,
+.socials__link:focus .instagram,
+.socials__link:active .instagram {
+  fill: url(#rg);
+}
+
+.socials__link:hover .pinterest,
+.socials__link:focus .pinterest,
+.socials__link:active .pinterest {
+  fill: #e60023;
 }
 
 /*  */
